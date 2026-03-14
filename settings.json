@@ -35,7 +35,7 @@
         "h6"
     ],
     "tocMinTags": 1,
-    "htmlBasePathPrefix": "security/",
+    "htmlBasePathPrefix": "/security/",
     "sandboxRunSwitch": true,
     "searchEnabled": true,
     "hljsLanguages": [
@@ -43,7 +43,6 @@
         "javascript",
         "json",
         "yaml",
-        "liquid",
         "markdown",
         "css"
     ],
