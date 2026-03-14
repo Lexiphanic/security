@@ -5,7 +5,7 @@
     "faviconUrl": "/assets/myfavicon.png",
     "blogTitle": "Blog",
     "blogDescription": "Here is the description of the blog part",
-    "productionUrl": "https://security.lexiphanic.co.uk",
+    "productionUrl": "https://lexiphanic.github.io/security/",
     "customLinks": [
         {
             "url": "/feed.xml",
@@ -35,7 +35,7 @@
         "h6"
     ],
     "tocMinTags": 1,
-    "htmlBasePathPrefix": "",
+    "htmlBasePathPrefix": "security/",
     "sandboxRunSwitch": true,
     "searchEnabled": true,
     "hljsLanguages": [

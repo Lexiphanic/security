@@ -2,8 +2,6 @@
 title: Hello World!
 description: I am the home page of this project
 layout: libdoc_page.liquid
-eleventyNavigation:
-    key: Home
 ---
 {% alert 'It seems to be the beginning of a great documentation story!', 'success', 'Howdy!' %}
 
