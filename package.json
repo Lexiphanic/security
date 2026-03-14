@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "description": "Lovely exploration into the world of security.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "11ty": "./node_modules/.bin/eleventy",
+    "clean": "rm -rf _site/ .cache/",
+    "build": "bun run 11ty",
+    "build:clean": "bun run clean && bun run 11ty build",
+    "dev": "bun run 11ty --serve",
+    "dev:clean": "bun run clean && bun run 11ty --serve"
   },
   "keywords": [],
   "author": "",
