@@ -1,0 +1,54 @@
+{
+    "siteTitle": "Lexiphanic Security",
+    "siteDescription": "This is the description of my project title",
+    "author": "Paul Hutchinson",
+    "faviconUrl": "/assets/myfavicon.png",
+    "blogTitle": "Blog",
+    "blogDescription": "Here is the description of the blog part",
+    "productionUrl": "https://security.lexiphanic.co.uk",
+    "customLinks": [
+        {
+            "url": "/feed.xml",
+            "text": "RSS"
+        },
+        {
+            "url": "https://github.com/lexiphanic/security",
+            "text": "GitHub"
+        }
+    ],
+    "editThisPageRootUrl.disabled": "https://github.com/lexiphanic/security/blob/main",
+    "_": "_",
+    "lang": "en",
+    "siteLogoUrl": "",
+    "siteLogoMaxHeight": 60,
+    "ogImageUrl": "https://raw.githubusercontent.com/ita-design-system/ita-medias/refs/heads/main/ogimage-11ty-libdoc.png",
+    "blogAuthor": false,
+    "blogSlug": "posts",
+    "displayTagsListLink": true,
+    "tocEnabled": true,
+    "tocHtmlTags": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
+    ],
+    "tocMinTags": 1,
+    "htmlBasePathPrefix": "",
+    "sandboxRunSwitch": true,
+    "searchEnabled": true,
+    "hljsLanguages": [
+        "bash",
+        "javascript",
+        "json",
+        "yaml",
+        "liquid",
+        "markdown",
+        "css"
+    ],
+    "roundedImagesCorners": true,
+    "imgBgColorLightMode": "transparent",
+    "imgBgColorDarkMode": "transparent",
+    "ogImageUrlForEachTag": {}
+}
