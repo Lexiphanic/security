@@ -1,7 +1,7 @@
 {
   "name": "@lexiphanic/security-website",
-  "version": "1.0.0",
-  "description": "An Eleventy starter project to craft slick and responsive documentation",
+  "version": "0.0.0",
+  "description": "Lovely exploration into the world of security.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
