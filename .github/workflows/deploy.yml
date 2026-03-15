@@ -40,7 +40,7 @@ jobs:
       - name: "Double ensure no '.internal.' or 'draft' files are leaked"
         run: |
           find disclosures -type f -name '*\.internal\.*' -delete
-          find disclosures/draft -type f -delete
+          mkdir -p draft && find draft -type f -delete
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
