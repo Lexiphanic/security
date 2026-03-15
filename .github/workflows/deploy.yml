@@ -16,7 +16,32 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Checkout security disclosure data
+        uses: actions/checkout@v6 
+        with:
+          repository: ${{ github.repository_owner }}/security-disclosure-data
+          path: _security-disclosure-data
+          token: ${{ secrets.DISCLOSURE_DATA_TOKEN }}
+          sparse-checkout: |
+            /*
+            !*.internal.*
+            !*/.internal.*
+            !*/*.internal.*
+            !*/*/.internal.*
+            !*/*/*/.internal.*
+            !*/*/*/*/.internal.*
+            !*/*/*/*/*/.internal.*
+            !*/*/*/*/*/*/.internal.*
+          sparse-checkout-cone-mode: false
+
+      - name: Replace disclosures directory with real data
+        run: |
+          rm -rf ./disclosures
+          find _security-disclosure-data -type f -name '*\.internal\.*' -delete
+          rm -rf _security-disclosure-data/.git
+          mv _security-disclosure-data ./disclosures
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

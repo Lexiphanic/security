@@ -13,6 +13,7 @@ const userConfig = require("../settings.json");
 export default {
     lang: userConfig.lang ?? "en",
     siteTitle: userConfig.siteTitle ?? "11ty LibDoc",
+    siteTitleShort: userConfig.siteTitleShort ?? "11tyLibDoc",
     siteDescription: userConfig.siteDescription ?? "An Eleventy starter project to craft slick documentation",
     siteLogoUrl: userConfig.siteLogoUrl ?? "",
     siteLogoMaxHeight: userConfig.siteLogoMaxHeight ?? 60,

@@ -9,6 +9,7 @@
         "@11ty/eleventy-img": "^6.0.1",
         "@11ty/eleventy-navigation": "^0.3.5",
         "@11ty/eleventy-plugin-rss": "^2.0.4",
+        "pagecrypt": "^7.1.0",
         "sharp": "^0.33.5",
       },
     },
@@ -281,6 +282,8 @@
     "p-queue": ["p-queue@6.6.2", "", { "dependencies": { "eventemitter3": "^4.0.4", "p-timeout": "^3.2.0" } }, "sha512-RwFpb72c/BhQLEXIZ5K2e+AhgNVmIejGlTgiB9MzZ0e93GRvqZ7uSi0dvRF7/XIXDeNkra2fNHBxTyPDGySpjQ=="],
 
     "p-timeout": ["p-timeout@3.2.0", "", { "dependencies": { "p-finally": "^1.0.0" } }, "sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg=="],
+
+    "pagecrypt": ["pagecrypt@7.1.0", "", { "bin": { "pagecrypt": "dist/cli.mjs" } }, "sha512-/7PlZN+cx/14d2kV8NVuWiEC1X0pN2os6Bum2jct38n2FhE3zBkXtIqoKI7bKaaGInVICyHHFwnndlPXjyhzLQ=="],
 
     "parse-srcset": ["parse-srcset@1.0.2", "", {}, "sha512-/2qh0lav6CmI15FzA3i/2Bzk2zCgQhGMkvhOhKNcBVQ1ldgpbfiNTVslmooUmWJcADi1f1kIeynbDRVzNlfR6Q=="],
 

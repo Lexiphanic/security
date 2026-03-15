@@ -1,9 +1,8 @@
 ---
 title: Disclosures
-description: I am the first page linked into the primary navigation
 layout: libdoc_page.liquid
 eleventyNavigation:
     key: Disclosures
 ---
 
-This goes here
+This is a placeholder, the real content is stored in [Lexiphanic/security-disclosure-data](https://github.com/Lexiphanic/security-disclosure-data).

@@ -1,3 +1,5 @@
+import { encryptHTML } from 'pagecrypt';
+
 // START 11TY imports
 import eleventyNavigationPlugin             from "@11ty/eleventy-navigation";
 import { InputPathToUrlTransformPlugin }    from "@11ty/eleventy";
@@ -54,6 +56,16 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("favicon.png");
     // END FILE COPY
     
+    eleventyConfig.addTransform("secure", async function(content, outputPath) {
+        const theContent = content;
+
+        if(!this.page.inputPath.startsWith("./disclosures/unreleased/")) {
+            return theContent;
+        }
+        
+        return await encryptHTML(content, 'password');
+    });
+
     return {
         pathPrefix: libdocConfig.htmlBasePathPrefix
     }

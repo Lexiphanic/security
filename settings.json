@@ -1,6 +1,7 @@
 {
     "siteTitle": "Lexiphanic Security",
-    "siteDescription": "This is the description of my project title",
+    "siteTitleShort": "LexiSecurity",
+    "siteDescription": "Lexiphanic public reports of various security related topics.",
     "author": "Paul Hutchinson",
     "faviconUrl": "/assets/myfavicon.png",
     "blogTitle": "Blog",
