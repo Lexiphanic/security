@@ -1,4 +1,6 @@
-import { encryptHTML } from 'pagecrypt';
+import { encryptHTML } from 'pagecrypt/core';
+import fs from 'fs';
+import matter from 'gray-matter';
 
 // START 11TY imports
 import eleventyNavigationPlugin             from "@11ty/eleventy-navigation";
@@ -56,14 +58,22 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("favicon.png");
     // END FILE COPY
     
-    eleventyConfig.addTransform("secure", async function(content, outputPath) {
-        const theContent = content;
-
-        if(!this.page.inputPath.startsWith("./disclosures/unreleased/")) {
-            return theContent;
+    eleventyConfig.addTransform("secure", async function(content) { 
+        const frontMatter = matter(fs.readFileSync(this.page.inputPath).toString('utf8'));
+        if (!("password" in frontMatter.data)) {
+            // No passwording required.
+            return content;
         }
-        
-        return await encryptHTML(content, 'password');
+
+        // Make sure the password is set and `eleventyExcludeFromCollections` is true (otherwise we leak data via search).
+        if (typeof frontMatter.data.password !== 'string'
+            || frontMatter.data.eleventyExcludeFromCollections !== true
+        ) {
+            throw new Error(
+                'When using `password`, `password` must be a string and `eleventyExcludeFromCollections` must be `true`',
+            );
+        }
+        return await encryptHTML(content, frontMatter.data.password);
     });
 
     return {
