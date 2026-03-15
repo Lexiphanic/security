@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v6 
         with:
           repository: ${{ github.repository_owner }}/security-disclosure-data
-          path: _security-disclosure-data
+          path: disclosures
           token: ${{ secrets.DISCLOSURE_DATA_TOKEN }}
           sparse-checkout: |
             /*
@@ -36,12 +36,9 @@ jobs:
             !*/*/*/*/*/*/.internal.*
           sparse-checkout-cone-mode: false
 
-      - name: Replace disclosures directory with real data
+      - name: "Double ensure no '.internal.' files are leaked"
         run: |
-          rm -rf ./disclosures
-          find _security-disclosure-data -type f -name '*\.internal\.*' -delete
-          rm -rf _security-disclosure-data/.git
-          mv _security-disclosure-data ./disclosures
+          find disclosures -type f -name '*\.internal\.*' -delete
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2

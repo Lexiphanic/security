@@ -16,6 +16,13 @@ import libdocFunctions                      from "./_data/libdocFunctions.js";
 // END LibDoc imports
 
 export default function(eleventyConfig) {
+    // We can't use .gitignore as we import `disclosures` at build (or dev) time.
+    eleventyConfig.setUseGitIgnore(false);
+    eleventyConfig.ignores.add('node_modules');
+    eleventyConfig.ignores.add('.vscode');
+    eleventyConfig.ignores.add('_site');
+    eleventyConfig.ignores.add('.cache');
+
     // START PLUGINS
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);

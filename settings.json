@@ -3,7 +3,7 @@
     "siteTitleShort": "LexiSecurity",
     "siteDescription": "Responsible vulnerability disclosure, security advisories, and research from the Lexiphanic team.",
     "author": "Paul Hutchinson",
-    "faviconUrl": "/assets/myfavicon.png",
+    "faviconUrl": "/favicon.png",
     "blogTitle": "Blog",
     "blogDescription": "Here is the description of the blog part",
     "productionUrl": "https://lexiphanic.github.io/security/",
