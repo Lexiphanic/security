@@ -8,7 +8,7 @@ layout: libdoc_page.liquid
 Get started
 
 
-{% iconCard 'Explore', 'Browse current and past security disclosures published by Lexiphanic Security. View disclosures.', 'folder-open' %}
+{% iconCard 'Explore', 'Browse current and past security disclosures published by Lexiphanic Security. [View disclosures](disclosures/).', 'magnifying-glass' %}
 
 
 ## Additional information
