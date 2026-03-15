@@ -8,9 +8,9 @@ eleventyExcludeFromCollections: true
         {%- for tag in collections.myTags -%}
             {% assign tagName = tag[0] %}
             {
-                "url": "{{ '/tags/' | url }}{{ tagName }}",
-                "title": "{{ libdocMessages.tag[libdocConfig.lang] }} {{ tagName }}",
-                "content": " {{ tagName }} "
+                "url": "{{ '/tags/' | url }}{{ tagName | escape }}",
+                "title": "{{ libdocMessages.tag[libdocConfig.lang] }} {{ tagName | escape }}",
+                "content": " {{ tagName | escape }} "
             }{% if forloop.last == false %},{% endif %}
         {%- endfor -%},
     {%- endif -%}
@@ -18,7 +18,7 @@ eleventyExcludeFromCollections: true
         {
             "url": "{{ item.url | url }}",
             "title": "{{ item.data.title | default: item.data.eleventyNavigation.key | default: item.inputPath | escape }}",
-            "content": "{{ item.data.description | strip_newlines | strip_html | escape | sanitizeJSON }} {{ item.data.tags | join: ' ' }} {{ item.content | strip_newlines | strip_html | escape | sanitizeJSON }}"
+            "content": "{{ item.data.description | strip_newlines | strip_html | escape | sanitizeJSON }} {{ item.data.tags | join: ' ' | escape }} {{ item.content | strip_newlines | strip_html | escape | sanitizeJSON }}"
         }{% if forloop.last == false %},{% endif %}
     {%- endfor -%}
 {%- endif %}
