@@ -4,7 +4,7 @@
 
 ## Overview
 
-This website is the public home for [Lexiphanic Security](https://lexiphanic.github.io/security/) disclosures and advisories. It is built with [11ty (Eleventy)](https://www.11ty.dev/) using the [LibDoc theme](https://eleventy-libdoc.netlify.app/).
+This website is the public home for [Lexiphanic Security](https://security.lexiphanic.co.uk) disclosures and advisories. It is built with [11ty (Eleventy)](https://www.11ty.dev/) using the [LibDoc theme](https://eleventy-libdoc.netlify.app/).
 
 ## Architecture
 

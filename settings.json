@@ -6,7 +6,7 @@
     "faviconUrl": "/favicon.png",
     "blogTitle": "Blog",
     "blogDescription": "Here is the description of the blog part",
-    "productionUrl": "https://lexiphanic.github.io/security/",
+    "productionUrl": "https://security.lexiphanic.co.uk/",
     "customLinks": [
         {
             "url": "/feed.xml",
