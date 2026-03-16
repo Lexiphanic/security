@@ -3,8 +3,6 @@ title: Disclosures
 layout: libdoc_page.liquid
 eleventyNavigation:
     key: Disclosures
-tags:
-  - disclosures
 permalink: disclosures/
 date: 2026-03-10
 ---
