@@ -4,7 +4,7 @@
 {%- assign pageTitle = page.inputPath -%}
 {%- assign pageDescription = description | default: "" -%}
 {%- assign pageAuthor = libdocConfig.author -%}
-{%- assign pageOgImageUrl = ogImageUrl | default: libdocConfig.ogImageUrl -%}
+{%- assign pageOgImageUrl = ogImageUrl -%}
 {%- assign editThisPageRootUrl = libdocConfig.editThisPageRootUrl | default: '' -%}
 {%- assign editThisPageUrl = editThisPageRootUrl | append: page.inputPath | replace: "/./", "/" | replace: "./", "/" -%}
 {%- comment -%} {%- assign blogPathUrl = '/' | append: libdocConfig.blogSlug | append: '/' -%} {%- endcomment -%}
@@ -97,9 +97,6 @@
 {%- if pageUrlSplit[1] == 'tags' -%}
     {%- assign headerMargin = '' -%}
     {% comment %} Tag page {% endcomment %}
-    {%- if libdocConfig.ogImageUrlForEachTag[pageUrlSplit[2]] != null %}
-        {%- assign pageOgImageUrl = libdocConfig.ogImageUrlForEachTag[pageUrlSplit[2]] -%}
-    {%- endif -%}
 {%- endif -%}
 {%- if pageUrlSplit[1] == libdocConfig.blogSlug and pageUrlSplit[2] == null -%}
     {%- assign headerMargin = '' -%}

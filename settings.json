@@ -22,7 +22,6 @@
     "lang": "en",
     "siteLogoUrl": "",
     "siteLogoMaxHeight": 60,
-    "ogImageUrl": "",
     "blogAuthor": false,
     "blogSlug": "posts",
     "displayTagsListLink": true,
@@ -49,6 +48,5 @@
     ],
     "roundedImagesCorners": true,
     "imgBgColorLightMode": "transparent",
-    "imgBgColorDarkMode": "transparent",
-    "ogImageUrlForEachTag": {}
+    "imgBgColorDarkMode": "transparent"
 }

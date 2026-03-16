@@ -21,6 +21,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "gray-matter": "^4.0.3",
     "pagecrypt": "^7.1.0",
+    "puppeteer": "^24.39.1",
     "sharp": "^0.33.5"
   }
 }

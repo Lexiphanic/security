@@ -3,19 +3,21 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 // START 11TY imports
-import eleventyNavigationPlugin             from "@11ty/eleventy-navigation";
-import { InputPathToUrlTransformPlugin }    from "@11ty/eleventy";
-import { eleventyImageTransformPlugin }     from "@11ty/eleventy-img";
-import { EleventyHtmlBasePlugin }           from "@11ty/eleventy";
-import pluginRss                            from "@11ty/eleventy-plugin-rss";
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import pluginRss from "@11ty/eleventy-plugin-rss";
 // END 11TY imports
 
 // START LibDoc imports
-import libdocConfig                         from "./_data/libdocConfig.js";
-import libdocFunctions                      from "./_data/libdocFunctions.js";
+import libdocConfig from "./_data/libdocConfig.js";
+import libdocFunctions from "./_data/libdocFunctions.js";
 // END LibDoc imports
 
-export default function(eleventyConfig) {
+import ogScreenshotPlugin from "./eleventy-og-screenshot.js";
+
+export default function (eleventyConfig) {
     // We can't use .gitignore as we import `disclosures` at build (or dev) time.
     eleventyConfig.setUseGitIgnore(false);
     eleventyConfig.ignores.add('node_modules');
@@ -29,6 +31,29 @@ export default function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, libdocFunctions.pluginsParameters.eleventyImageTransform());
     eleventyConfig.addPlugin(pluginRss);
+    eleventyConfig.addPlugin(ogScreenshotPlugin, {
+        selector: (entry) => entry.url.startsWith('/tags/') ? "main" : "main > header",
+        imageName: "og.png",
+        viewport: { width: 1200, height: 630, deviceScaleFactor: 1 },
+        filter: (entry) => entry.outputPath?.endsWith('.html'),
+        preprocess: (element, page) => {
+            page.evaluate(() => {
+                document.getElementById('sidebar').style.display = 'none'
+            })
+        }
+    });
+
+    // Optional: expose ogImageUrl in computed data
+    eleventyConfig.addGlobalData("eleventyComputed", {
+        ogImageUrl: (data) => {
+            if (!data.page || !data.page.url) return null;
+            return new URL(
+                `${data.page.url.replace(/index\.html$/, "").replace(/\/$/, "")}/og.png`,
+                "http://localhost:8080"
+            ).toString();
+        },
+    });
+
     // END PLUGINS
 
     // START FILTERS
@@ -59,13 +84,13 @@ export default function(eleventyConfig) {
     // END SHORTCODES
 
     // START FILE COPY
-	eleventyConfig.addPassthroughCopy("sandboxes");
+    eleventyConfig.addPassthroughCopy("sandboxes");
     eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addPassthroughCopy("core/assets");
     eleventyConfig.addPassthroughCopy("favicon.png");
     // END FILE COPY
-    
-    eleventyConfig.addTransform("secure", async function(content) { 
+
+    eleventyConfig.addTransform("secure", async function (content) {
         const frontMatter = matter(fs.readFileSync(this.page.inputPath).toString('utf8'));
         if (!("password" in frontMatter.data)) {
             // No passwording required.

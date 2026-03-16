@@ -19,7 +19,6 @@ export default {
     siteLogoMaxHeight: userConfig.siteLogoMaxHeight ?? 60,
     author: userConfig.author ?? false,
     faviconUrl: userConfig.faviconUrl ?? "/favicon.png",
-    ogImageUrl: userConfig.ogImageUrl ?? "",
     customLinks: userConfig.customLinks ?? [],
     blogTitle: userConfig.blogTitle ?? "Blog Posts",
     blogDescription: userConfig.blogDescription ?? false,
@@ -46,5 +45,4 @@ export default {
     imgBgColorLightMode: userConfig.imgBgColorLightMode ?? "transparent",
     imgBgColorDarkMode: userConfig.imgBgColorDarkMode ?? "transparent",
     productionUrl: userConfig.productionUrl ?? "",
-    ogImageUrlForEachTag: userConfig.ogImageUrlForEachTag ?? {}
 };
