@@ -1,7 +1,7 @@
 import { encryptHTML } from 'pagecrypt/core';
 import fs from 'fs';
 import matter from 'gray-matter';
-import settings from './settings.json';
+import settings from './settings.json' with {type: "json"};
 
 // START 11TY imports
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
