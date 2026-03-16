@@ -1,11 +1,12 @@
 import { encryptHTML } from 'pagecrypt/core';
 import fs from 'fs';
 import matter from 'gray-matter';
+import settings from './settings.json';
 
 // START 11TY imports
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import { InputPathToUrlTransformPlugin } from "@11ty/eleventy";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+// import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 // END 11TY imports
@@ -49,7 +50,7 @@ export default function (eleventyConfig) {
             if (!data.page || !data.page.url) return null;
             return new URL(
                 `${data.page.url.replace(/index\.html$/, "").replace(/\/$/, "")}/og.png`,
-                "http://localhost:8080"
+                settings.productionUrl,
             ).toString();
         },
     });
