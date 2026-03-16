@@ -22,7 +22,7 @@
     "lang": "en",
     "siteLogoUrl": "",
     "siteLogoMaxHeight": 60,
-    "ogImageUrl": "https://raw.githubusercontent.com/ita-design-system/ita-medias/refs/heads/main/ogimage-11ty-libdoc.png",
+    "ogImageUrl": "",
     "blogAuthor": false,
     "blogSlug": "posts",
     "displayTagsListLink": true,
