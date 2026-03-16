@@ -67,7 +67,7 @@ export default function ogImagePlugin(eleventyConfig, userOptions = {}) {
       // Loop through each page.
       for (const result of results) {
         if (!options.filter(result)) continue;
-        log('Working on: ' + result.url);
+        log('Creating "og:image" for: ' + result.url);
 
         const pageUrl = new URL(result.url, 'http://localhost:' + options.port).toString();
         await page.goto(pageUrl, { waitUntil: options.waitUntil });
