@@ -9,6 +9,16 @@
         "anchorClass": "d-flex ai-center fg-1 | pos-relative | w-100 pt-2 pb-2 pr-6 | fs-3 td-none lh-5 tws-balance fvs-wght-500 | c-neutral-900 nav_primary__anchor",
         "activeAnchorClass": ""
     },
+    "navigationOptionsForDisclosures": {
+        "listElement": "ul",
+        "listItemElement": "li",
+        "listClass": "",
+        "listItemClass": "",
+        "listItemHasChildrenClass": "",
+        "activeListItemClass": "",
+        "anchorClass": "",
+        "activeAnchorClass": ""
+    },
     "widthSidebar": 300,
     "widthContent": 700,
     "icons": [
@@ -55,7 +65,11 @@
     ],
     "pluginsParameters": {
         "eleventyImageTransform": {
-            "formats": ["svg", "avif", "webp"],
+            "formats": [
+                "svg",
+                "avif",
+                "webp"
+            ],
             "useCache": true,
             "svgShortCircuit": true,
             "htmlOptions": {
