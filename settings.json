@@ -17,24 +17,16 @@
             "text": "GitHub"
         }
     ],
-    "editThisPageRootUrl.disabled": "https://github.com/lexiphanic/security/blob/main",
-    "_": "_",
     "lang": "en",
-    "siteLogoUrl": "",
-    "siteLogoMaxHeight": 60,
-    "blogAuthor": false,
-    "blogSlug": "posts",
     "displayTagsListLink": true,
     "tocEnabled": true,
     "tocHtmlTags": [
         "h1",
         "h2",
         "h3",
-        "h4",
-        "h5",
-        "h6"
+        "h4"
     ],
-    "tocMinTags": 1,
+    "tocMinTags": 2,
     "htmlBasePathPrefix": "",
     "sandboxRunSwitch": true,
     "searchEnabled": true,
