@@ -195,8 +195,10 @@
                             </a>
                         {% else %}
                             <a  href="/"
-                                class="p-5 | td-none fvs-wght-700 lsp-5 fs-8 tws-balance | c-neutral-900"
-                                title="{{ libdocConfig.siteDescription }}">
+                                class="site-logo p-5 | td-none fvs-wght-700 lsp-5 fs-8 tws-balance | c-neutral-900"
+                                title="{{ libdocConfig.siteDescription }}"
+                                data-name="{{ libdocConfig.siteTitle }}"
+                            >
                                 {{ libdocConfig.siteTitle }}
                             </a>
                         {% endif %}
