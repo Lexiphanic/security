@@ -88,7 +88,14 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("sandboxes");
     eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addPassthroughCopy("core/assets");
+    eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+    eleventyConfig.addPassthroughCopy("favicon.svg");
+    eleventyConfig.addPassthroughCopy("favicon.ico");
     eleventyConfig.addPassthroughCopy("favicon.png");
+    eleventyConfig.addPassthroughCopy("favicon-96x96.png");
+    eleventyConfig.addPassthroughCopy("web-app-manifest-192x192");
+    eleventyConfig.addPassthroughCopy("web-app-manifest-512x512.png");
+    eleventyConfig.addPassthroughCopy("site.webmanifest");
     // END FILE COPY
 
     eleventyConfig.addTransform("secure", async function (content) {
