@@ -17,6 +17,7 @@ import libdocFunctions from "./_data/libdocFunctions.js";
 // END LibDoc imports
 
 import ogScreenshotPlugin from "./eleventy-og-screenshot.js";
+import pdfPlugin from "./eleventy-pdf.js";
 
 export default function (eleventyConfig) {
     // We can't use .gitignore as we import `disclosures` at build (or dev) time.
@@ -42,6 +43,11 @@ export default function (eleventyConfig) {
                 document.getElementById('sidebar').style.display = 'none'
             })
         }
+    });
+    eleventyConfig.addPlugin(pdfPlugin, {
+        selector: (entry) => entry.url.startsWith('/tags/') ? "main" : "main > header",
+        imageName: "document.pdf",
+        filter: (entry) => entry.outputPath?.endsWith('.html'),
     });
 
     // Optional: expose ogImageUrl in computed data
@@ -96,6 +102,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("web-app-manifest-192x192");
     eleventyConfig.addPassthroughCopy("web-app-manifest-512x512.png");
     eleventyConfig.addPassthroughCopy("site.webmanifest");
+    eleventyConfig.addPassthroughCopy("disclosures/**/*.{jpg,jpeg,png,webp,gif,svg}");
     // END FILE COPY
 
     eleventyConfig.addTransform("secure", async function (content) {

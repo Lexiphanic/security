@@ -4,13 +4,11 @@ import puppeteer from "puppeteer";
 import { spawn } from 'node:child_process';
 
 
-export default function ogImagePlugin(eleventyConfig, userOptions = {}) {
+export default function pdfPlugin(eleventyConfig, userOptions = {}) {
   const options = {
-    selector: "header",
-    imageName: "og.png",
-    viewport: { width: 1200, height: 630, deviceScaleFactor: 1 },
+    fileName: "og.png",
     waitUntil: "networkidle0",
-    port: 8182,
+    port: 8181,
     log: true,
     preprocess: async () => undefined,
     filter: (entry) =>
@@ -60,39 +58,36 @@ export default function ogImagePlugin(eleventyConfig, userOptions = {}) {
     });
 
     try {
-      // Open a page and set our viewport.
+      // Open a page.
       const page = await browser.newPage();
-      await page.setViewport(options.viewport);
 
       // Loop through each page.
       for (const result of results) {
         if (!options.filter(result)) continue;
-        log('Creating "og:image" for: ' + result.url);
+        log('Creating "pdf" for: ' + result.url);
 
         const pageUrl = new URL(result.url, 'http://localhost:' + options.port).toString();
         await page.goto(pageUrl, { waitUntil: options.waitUntil });
 
-        const element = await page.$(typeof options.selector === 'string'
-          ? options.selector
-          : options.selector(result)
-        );
-        if (!element) {
-          log('     Selector not found.');
-          continue;
-        }
-
-        await element.evaluate((el) => {
-          el.style.height = '100vh';
-          el.style.width = '100vw';
-          el.style.maxWidth = 'initial';
-          el.parentElement.style.display = 'block'; // Flex be wierd.
-        });
-        await options.preprocess(element, page);
+        await options.preprocess(page);
         const outDir = path.join(dir.output, result.url);
         await fs.mkdir(outDir, { recursive: true });
 
         const outPath = path.join(outDir, options.imageName);
-        await element.screenshot({ path: outPath, type: "png" });
+        await page.pdf({
+          path: outPath,
+          displayHeaderFooter: false,
+          format: 'A4',
+          printBackground: true,
+          tagged: true,
+          outline: true,
+          margin: {
+            top: '1cm',
+            bottom: '1cm',
+            left: '0.5cm',
+            right: '0.5cm',
+          }
+        });
       }
     } finally {
       await browser.close();
